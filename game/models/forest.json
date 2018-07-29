@@ -273,4 +273,12 @@
 	"animations": false,
 	"blocking": true,
 	"image":"objects/syringa-big.png"
+},{
+	"name": "road",
+	"type": "terrain",
+	"size": { "x": 4, "y": 2 },
+	"defaultAnimation": false,
+	"animations": false,
+	"blocking": true,
+	"image":"terrain/road.png"
 }]

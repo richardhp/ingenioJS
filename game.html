@@ -138,6 +138,8 @@
 </div>
 
 <script>
+	//You can set this to be the URL that hosts the game
+	var strRootURL = "";
 // initialize the engine with settings
 var game = new ingenioJS.engine('html-viewport', {
 	context: 'ninja', // game context
@@ -147,12 +149,12 @@ var game = new ingenioJS.engine('html-viewport', {
 	},
 	messages: 'ui-messages',
 	models: {
-		index: 'game/models/forest.json',
-		base: 'game/assets/forest',
+		index: strRootURL + 'game/models/forest.json',
+		base: strRootURL + 'game/assets/forest',
 	},
 	levels: {
-		index: 'game/levels/index.json',
-		base: 'game/levels'
+		index: strRootURL + 'game/levels/index.json',
+		base: strRootURL + 'game/levels'
 	},
 	level: 'level1', // initial level
 	viewport: {
@@ -184,7 +186,7 @@ game.shiftPlayerTo = function(goal){
 		player.position.y = (goal.y);
 		this.compositor.execute(player.node.parentNode, player);
 
-		this.drawPath(path);
+		//this.drawPath(path);
 	}
 
 	return path; //this.path;

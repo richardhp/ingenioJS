@@ -32,15 +32,71 @@
 		color:#fff;
 		text-shadow:2px 2px #000;
 	}
+	code {
+		color:#992419;
+		background-color:#B9E3CD;
+		font-family:courier;
+		font-size:0.6em;
+		line-height:1em;
+		display:block;
+		border-style:solid;
+		border-width: 5px;
+		border-radius:10px;
+		border-color:#004C1F;
+		margin-left:30px;
+		padding-left:30px;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	.left {
+		width:70%;
+	}
 	</style>
 </head>
 <body>
 
 <!-- the context for the documentation browser -->
 <div id="ui-documentation" class="left">
-	Have a look at the <a href="jsdoc.html">automatic generated JSDoc</a>.
-	
-	So how do we start a game?
+	Have a look at the <a href="jsdoc.html">automatic generated JSDoc</a>. <br>
+	<br>
+	<h4>Introduction</h4>
+	So how do we start a game?  First of all, we must include all of the javascript source files, like so: <br><br>
+	<code>
+	&lt;script&gt;if(!ingenioJS){ var ingenioJS = {}; }&lt;/script&gt; <br>
+	&lt;script src="ingenioJS/lib/dom.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/lib/toolkit.js"&gt;&lt;/script&gt;<br>
+<br>
+	&lt;script src="ingenioJS/cache.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.audio.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.hitmap.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.hitmap.pathfinder.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.controllers.item.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.controllers.message.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.controllers.player.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/engine.controllers.quest.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/compositor.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/renderer.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="ingenioJS/renderer.animation.js"&gt;&lt;/script&gt;<br>
+	</code>
+	<br>
+
+	Next we must design a level.  We do this by opening up <a target="_blank" href="editor.html">THE EDITOR</a>
+	<br>
+	<br>
+	In there you will notice a lot of things down the side panel.  These are things that can be put into the level.  Where does it get these items from?  The clue is when we look into the Javascript in the editor.html file.  When we create the editor object, we pass it as the parameters something like this: <br><br>
+	<code>
+	models: { <br>
+	&emsp;	index: 'game/models/forest.json', <br>
+	&emsp;	base: 'game/assets/forest', <br>
+	}, <br>
+	</code><br>
+	The first part, the json file, is a description of all the different assets that will be used to create the level.  It is a description that tells the engine what size each sprite is, whether it can be walked over or not, etc.  It also contains a link to the image file that will be used to display it.  These image file paths are all relative to the second line, which is the "base" part.
+	<br><br>
+	To familiariase yourself with this, why don't you create a new png file and put it in the "base" folder.  It can even go in a sub directory if you want.  Then add the description of this into the json file and reload the editor.  You should see the png file you made appear in the side bar on the left.
+	<br>
+	<br>
+	Once you have created a level, you can export it.  Copy the JSON that gets produced and save it to the assets directory.
 </div>
 
 <!-- the ui / sidebar -->
